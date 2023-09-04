@@ -1,51 +1,22 @@
 
 
-interface EmployeeInterface
+interface Employee
 {
-    String  getName();
-    int getEmployeeID();
 
     double calculateSalary();
 
 }
-class Employee implements  EmployeeInterface{
-    protected String name;
-    protected int employeeID;
-    public Employee(String name,int employeeID)
-    {
-        this.name=name;
-        this.employeeID=employeeID;
-    }
 
-    public String getName()
-    {
-        return name;
-    }
-    public int getEmployeeID()
-    {
-        return employeeID;
-    }
-
-    public double calculateSalary()
-    {
-        return 0;
-    }
-    public String  toString()
-    {
-        System.out.println("Employee name : "+name);
-        System.out.println("Employee ID   : "+employeeID);
-        return "";
-    }
-
-
-}
-class HourlyEmployee extends Employee{
+class HourlyEmployee implements Employee{
+    private String name;
+    private int employeeID;
     private double hourlyRate;
     private int hoursWorked;
     public HourlyEmployee(String name,int employeeID,double hourlyRate,int hoursWorked )
     {
-        super(name,employeeID);
-        this.hourlyRate=hourlyRate;
+        this.name=name;
+        this.employeeID=employeeID;
+            this.hourlyRate=hourlyRate;
         this.hoursWorked=hoursWorked;
     }
     public double  calculateSalary()
@@ -54,14 +25,17 @@ class HourlyEmployee extends Employee{
     }
     public String toString()
     {
-        super.toString();
+        System.out.println("Employee name : "+name);
+        System.out.println("Employee ID   : "+employeeID);
         System.out.println("Employee type : Hourly employee");
         return "";
     }
 
 
 }
-class FullTimeEmployee extends Employee{
+class FullTimeEmployee implements Employee{
+    private String name;
+    private int employeeID;
     private double dailyRate;
     private int totalAbsentDays;
     private String month;
@@ -83,7 +57,8 @@ class FullTimeEmployee extends Employee{
 
     FullTimeEmployee(String name,int employeeID,double dailyRate,int totalAbsentDays,String month)
     {
-        super(name,employeeID);
+        this.name=name;
+        this.employeeID=employeeID;
         this.dailyRate=dailyRate;
         this.totalAbsentDays=totalAbsentDays;
         this.month=month;
@@ -97,7 +72,8 @@ class FullTimeEmployee extends Employee{
     }
     public String toString()
     {
-        super.toString();
+        System.out.println("Employee name : "+name);
+        System.out.println("Employee ID   : "+employeeID);
         System.out.println("Employee type : Full Time employee ");
         return "";
     }
